@@ -1,0 +1,31 @@
+<div class="page-header">
+  <h1>WrightRobotix <small>end of the year sale!</small></h1>
+</div>
+
+<div class="row">
+  <% @products.each do |product|%>
+   <div class="col-md-4">
+    <div class="owl-item">
+    <div class="item">
+			<div class="product-col">
+				<div class="image img-responsive img-thumbnail">
+          <%= image_tag product.photo%>
+				</div>
+				<div class="caption">
+					<h4><%=link_to product.name, show_path(id: product.id) %></h4>
+					<div class="price">
+						<span class="price-new"><%=number_to_currency product.price %></span>
+						<span class="price-old"><%=number_to_currency product.price * 1.10 %></span>
+					</div>
+					<div class="cart-button button-group">
+            <%= button_to add_to_cart_path(product_id: product.id), method: :post, class: "btn btn-cart" do %>
+                Add To Cart <span class="glyphicon glyphicon-shopping-cart"></span>
+            <% end %>
+					</div>
+				</div>
+			</div>
+		</div>
+  </div>
+</div>
+<% end %>
+</div>

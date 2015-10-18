@@ -1,0 +1,48 @@
+<div class="row product-info">
+				<!-- Left Starts -->
+					<div class="col-sm-5 images-block">
+
+<div class="img-brz">
+              <%= image_tag @product.photo%>
+</div>
+
+					</div>
+				<!-- Left Ends -->
+				<!-- Right Starts -->
+					<div class="col-sm-7 product-details">
+					<!-- Product Name Starts -->
+						<h2><%=@product.name%></h2>
+					<!-- Product Name Ends -->
+						<hr>
+					<!-- Manufacturer Starts -->
+						<ul class="list-unstyled manufacturer">
+							<li>
+								<span>Description:</span> <%= @product.description %>
+							</li>
+						</ul>
+					<!-- Manufacturer Ends -->
+						<hr>
+					<!-- Price Starts -->
+						<div class="price">
+							<span class="price-head">Price :</span>
+							<span class="price-new"><%=number_to_currency @product.price %></span>
+						</div>
+					<!-- Price Ends -->
+						<hr>
+					<!-- Available Options Starts -->
+						<div class="options">
+							<div class="form-group">
+								<label class="control-label text-uppercase" for="input-quantity">Qty:</label>
+								<input type="text" name="quantity" value="1" size="2" id="input-quantity" class="form-control">
+							</div>
+							<div class="cart-button button-group">
+                <%= button_to add_to_cart_path(product_id: @product.id), method: :post, class: "btn btn-cart" do %>
+                    Add To Cart <span class="glyphicon glyphicon-shopping-cart"></span>
+                <% end %>
+							</div>
+						</div>
+					<!-- Available Options Ends -->
+						<hr>
+					</div>
+				<!-- Right Ends -->
+				</div>
