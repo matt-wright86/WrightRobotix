@@ -36,7 +36,7 @@
               </form>
               <ul class="nav navbar-nav navbar-right">
                 <%if @cisum.present?%>
-                <li><a href="">cart items: <%= @cisum %></a></li>
+                <li><a href="/cart"><span class="glyphicon glyphicon-shopping-cart"><%= @cisum %></span></a></li>
                 <% else %>
                   <li><a href="">cart items: 0 </a></li>
                 <% end %>

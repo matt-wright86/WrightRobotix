@@ -1,2 +1,59 @@
-<h1>Carts#confirmation</h1>
-<p>Find me in app/views/carts/confirmation.html.erb</p>
+<div class="page-header">
+  <h1>WrightRobotix <small>confirmation</small></h1>
+</div>
+
+<div class="table-responsive shopping-cart-table">
+			<table class="table table-bordered">
+				<thead>
+					<tr>
+						<td class="text-center">
+							Image
+						</td>
+						<td class="text-center">
+							Product Details
+						</td>
+						<td class="text-center">
+							Quantity
+						</td>
+						<td class="text-center">
+							Price
+						</td>
+						<td class="text-center">
+							Total
+						</td>
+					</tr>
+				</thead>
+				<tbody>
+            <% @cart.cart_items.each do |cart_item| %>
+					<tr>
+						<td class="text-center">
+							<%= image_tag cart_item.product.photo%>
+						</td>
+						<td class="text-center">
+							<%= cart_item.product.name %>
+						</td>
+						<td class="text-center">
+							<div class="quantity"><%= cart_item.quantity %></div>
+						</td>
+						<td class="text-center">
+							<%= number_to_currency cart_item.price %>
+						</td>
+						<td class="text-center">
+							<%= number_to_currency @cart.price_in_dollars %>
+						</td>
+					</tr>
+          <% end %>
+
+				</tbody>
+				<tfoot>
+					<tr>
+					  <td colspan="4" class="text-right">
+						<strong>Total :</strong>
+					  </td>
+					  <td colspan="2" class="text-left">
+						<%= number_to_currency @cart.price_in_dollars %>
+					  </td>
+					</tr>
+				</tfoot>
+			</table>
+		</div>

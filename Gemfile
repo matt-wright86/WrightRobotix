@@ -52,3 +52,5 @@ gem 'react-rails', '~> 1.3.0'
 gem 'faker'
 
 gem 'payola-payments'
+
+gem "figaro"

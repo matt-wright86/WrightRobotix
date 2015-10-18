@@ -4,6 +4,9 @@ Payola.configure do |config|
     config.publishable_key = 'pk_test_5QEzwHwYfS6UKifTYYIfClpa'
   #   EmailSender.send_an_email(sale.email)
   # end
+  config.subscribe 'payola.cart.sale.finished' do |sale|
+    cart = sale.product
+    cart.update(completed: true)
   #
   # In addition to any event that Stripe sends, you can subscribe
   # to the following special payola events:
