@@ -33,7 +33,7 @@
 							<%= image_tag cart_item.product.photo%>
 						</td>
 						<td class="text-center">
-							<%= cart_item.product.name %>
+							<%=link_to cart_item.product.name, show_path(id: cart_item.product.id) %>
 						</td>
 						<td class="text-center">
 							<div class="quantity"><%= cart_item.quantity %></div>

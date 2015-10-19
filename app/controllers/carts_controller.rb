@@ -36,7 +36,7 @@ class CartsController < ApplicationController
     end
     @cart.price = @cart.cart_items.map{|ci| ci.price_in_cents * ci.quantity}.sum
     @cart.save!
-    redirect_to shopping_cart_path
+    redirect_to root_path
   end
 
   def remove
@@ -49,8 +49,7 @@ class CartsController < ApplicationController
   end
 
   def show
-    @cart_total = CartItem.all.map do |q| q.slice(:quantity) end
-    @cisum = @cart_total.map { |h| h[:quantity] }.sum
+    @cisum = @cart.cart_items.map{|ci| ci.quantity}.sum
   end
 
 

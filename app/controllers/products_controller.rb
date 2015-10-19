@@ -1,13 +1,13 @@
 class ProductsController < ApplicationController
   def index
     @products = Product.all
-    @cart_total = CartItem.all.map do |q| q.slice(:quantity) end
-    @cisum = @cart_total.map { |h| h[:quantity] }.sum
+    @cart = @current_user.carts.find_by completed: false
+    @cisum = @cart.cart_items.map{|ci| ci.quantity}.sum
   end
 
   def show
     @product = Product.find params[:id]
-    @cart_total = CartItem.all.map do |q| q.slice(:quantity) end
-    @cisum = @cart_total.map { |h| h[:quantity] }.sum
+    @cart = @current_user.carts.find_by completed: false
+    @cisum = @cart.cart_items.map{|ci| ci.quantity}.sum
   end
 end
