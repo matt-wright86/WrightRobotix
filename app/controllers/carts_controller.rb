@@ -16,7 +16,6 @@ class CartsController < ApplicationController
   end
 
   def cart_total
-
   end
 
   def confirmation
@@ -26,7 +25,6 @@ class CartsController < ApplicationController
 
   def add
     @product = Product.find params[:product_id]
-
     cart_item = @cart.cart_items.find_by product_id: @product.id
     if cart_item.present?
       cart_item.quantity += 1
@@ -51,6 +49,4 @@ class CartsController < ApplicationController
   def show
     @cisum = @cart.cart_items.map{|ci| ci.quantity}.sum
   end
-
-
 end
